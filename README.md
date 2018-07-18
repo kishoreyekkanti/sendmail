@@ -19,23 +19,6 @@ Ex: SEND_GRID_API_KEY=<SEND GRID API KEY> MAILGUN_USER=<USER> MAILGUN_API_KEY=<A
 
 By default service tries to send email via SendGrid and if it fails, then fallbacks to the secondary provider MailGun.
 
-Process Monitoring
----
-In production you an use process monitoring libraries like `pm2` to start the app so that it can automatically restart 
-after any failures.
-
-```
-EX: SEND_GRID_API_KEY=<SEND GRID API KEY> MAILGUN_USER=<USER> MAILGUN_API_KEY=<API_KEY> pm2 start app.js --name "name-your-mail-service" 
-```
-
-Logging
----
-If this service is used as one of the down stream services in a larger micro service echo system then you can pass 
-`corellation ids` to uniquely identify your request. Pass on the correlation ids in request header `X-Request-Id`. If 
-this header is not found then the app will auto generate a unique request id for every http call.
-
-Logs are in json format and the library used is [bunyan](https://github.com/trentm/node-bunyan).
-
 API
 ---
 There's only one api which is exposed to send the emails. Below is the curl request for example - 
@@ -68,7 +51,23 @@ include `cc`, `bcc`.
  
  `content` - An object with fields `type`(restricted enum with values "text/plain" and "text/html") and `value`.
  
-Use the postman collection `sendmail` 
+
+Logging/Tracing
+---
+If this service is used as one of the down stream services in a larger micro service echo system then you can pass 
+`corellation ids` to uniquely identify your request. Pass on the correlation ids in request header `X-Request-Id`. If 
+this header is not found then the app will auto generate a unique request id for every http call.
+
+Logs are in json format and the library used is [bunyan](https://github.com/trentm/node-bunyan).
+
+Process Monitoring
+---
+In production you an use process monitoring libraries like `pm2` to start the app so that it can automatically restart 
+after any failures.
+
+```
+EX: SEND_GRID_API_KEY=<SEND GRID API KEY> MAILGUN_USER=<USER> MAILGUN_API_KEY=<API_KEY> pm2 start app.js --name "name-your-mail-service" 
+```
 
 TODO
 ---
