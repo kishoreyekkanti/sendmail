@@ -40,8 +40,12 @@ let port = process.env.PORT || '3000';
 
 require(global._ROOT + '/routes/index')(server);
 
-server.listen(port, function () {
-    logger.info('Send Email Service listening on port ' + port);
-});
+if (global._SEND_GRID_API_KEY || (global._MAILGUN_USER && global._MAILGUN_API_KEY)) {
+    server.listen(port, function () {
+        logger.info('Send Email Service listening on port ' + port);
+    });
+} else {
+    logger.info("PLEASE PROVIDE EITHER SEND_GRID_API_KEY OR MAILGUN_USER AND MAILGUN_API_KEY.");
+}
 
 module.exports = server;
