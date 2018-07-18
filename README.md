@@ -53,6 +53,12 @@ include `cc`, `bcc`.
  
 Have a look at [this schema file](https://github.com/kishoreyekkanti/sendmail/blob/master/models/mail.js) to understand all the input validations. 
 
+Simulate Fail over
+---
+To simulate fail over use the query param "force_failover=true" as part of the URL. 
+
+Ex: http://localhost:3000/mail/send?force_failover=true
+
 Logging/Tracing
 ---
 If this service is used as one of the down stream services in a larger micro service echo system then you can pass 

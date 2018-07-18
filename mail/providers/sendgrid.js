@@ -1,6 +1,7 @@
 const logger = require(global._ROOT + '/log/logger');
 const axios = require('axios');
 const https = require('https');
+const Promise = require('bluebird');
 
 class SendGrid {
 
@@ -21,8 +22,15 @@ class SendGrid {
     }
 
     send(req) {
-        let data = this.parseData(req)
-        return this.getApiClient().post('/mail/send', data);
+        let data = this.parseData(req);
+        //To simulate fail over
+        if (req.query.force_failover === true) {
+            return new Promise(function (resolve, reject) {
+                return reject({response: {status: 502}});
+            });
+        } else {
+            return this.getApiClient().post('/mail/send', data);
+        }
     }
 
     parseData(req) {
