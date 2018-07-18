@@ -51,6 +51,7 @@ include `cc`, `bcc`.
  
  `content` - An object with fields `type`(restricted enum with values "text/plain" and "text/html") and `value`.
  
+Have a look at [this schema file](https://github.com/kishoreyekkanti/sendmail/blob/master/models/mail.js) to understand all the input validations. 
 
 Logging/Tracing
 ---
