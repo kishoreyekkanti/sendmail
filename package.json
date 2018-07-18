@@ -4,7 +4,9 @@
   "description": "Abstraction for sending mails between sendgrid and mailgun. In future would be extended to more for fault tolerance.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "preinstall": "npm i -g pm2 && pm2 install pm2-logrotate",
+    "start":""
   },
   "keywords": [
     "mail",
