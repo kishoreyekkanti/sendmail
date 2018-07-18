@@ -1,0 +1,35 @@
+{
+  "name": "sendmail",
+  "version": "1.0.0",
+  "description": "Abstraction for sending mails between sendgrid and mailgun. In future would be extended to more for fault tolerance.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "mail",
+    "sendgrid",
+    "mailgun"
+  ],
+  "author": "Kishore Yekkanti",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "btoa": "^1.2.1",
+    "bunyan": "^1.8.12",
+    "https": "^1.0.0",
+    "jsonschema": "^1.2.4",
+    "lodash": "^4.17.10",
+    "nconf": "^0.10.0",
+    "pm2": "^3.0.0",
+    "restify": "^7.2.1",
+    "restify-cookies": "^0.2.5",
+    "underscore": "^1.9.1",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "jest": "^23.4.1",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0"
+  }
+}
