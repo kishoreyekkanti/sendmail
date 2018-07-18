@@ -13,7 +13,7 @@ function getFormattedEmails(emails) {
         } else {
             formattedEmails += fromAddress.email + ","
         }
-    })
+    });
     return formattedEmails;
 }
 

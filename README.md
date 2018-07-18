@@ -61,9 +61,23 @@ this header is not found then the app will auto generate a unique request id for
 
 Logs are in json format and the library used is [bunyan](https://github.com/trentm/node-bunyan).
 
+Deploy on Heroku
+--
+A sample Procfile is created in the root folder to deploy the application on heroku. Create an account with heroku and login.
+```nashorn js
+heroku login
+```  
+Use the below commands to deploy the app on to heroku. 
+
+```nashorn js
+heroku create
+heroku config:set SEND_GRID_API_KEY=<API_KEY> MAILGUN_USER=<USER> MAILGUN_API_KEY=<API KEY>
+git push heroku master
+```
+
 Process Monitoring
 ---
-In production you an use process monitoring libraries like `pm2` to start the app so that it can automatically restart 
+In production you can use process monitoring libraries like `pm2` to start the app so that it can automatically restart 
 after any failures.
 
 ```

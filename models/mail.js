@@ -29,7 +29,7 @@ const emailSchema = {
         "to": {"$ref": "/EmailFormat"},
         "cc": {"required": false, "$ref": "/EmailFormat"},
         "bcc": {"required": false, "$ref": "/EmailFormat"},
-        "subject": {"type": "string"},
+        "subject": {"type": "string", "minLength": 2},
         "content": {
             "type": "object",
             "properties": {
